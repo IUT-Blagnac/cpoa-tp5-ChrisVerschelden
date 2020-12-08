@@ -54,14 +54,14 @@ dependencies {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'observer/nonpattern/CourseViewer'
+        attributes 'Main-Class': 'observer/pattern/CourseController'
     }
 }
  
 apply plugin: "com.github.roroche.plantuml"
 
 classDiagram { // (1)
-    packageName = "app" // (2)
+    packageName = "observer/nonpattern" // (2)
     outputFile = project.file('docs/TP1.plantuml')
 }
   
