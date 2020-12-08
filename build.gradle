@@ -54,7 +54,8 @@ dependencies {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'observer/pattern/CourseController'
+        //attributes 'Main-Class': 'observer/pattern/CourseController'
+        attributes 'Main-Class': 'observer/nonpattern/CourseViewer'
     }
 }
  

@@ -150,6 +150,25 @@ public class CourseViewer extends JFrame implements ActionListener,
 							* LayoutConstants.barWidth, LayoutConstants.yOffset
 							+ LayoutConstants.graphHeight + 20);
 		}
+
+		int radius = 100;
+
+		//first compute the total number of students
+		double total = 0.0;
+		for (int i = 0; i < sliders.size(); i++) {
+			total = total + sliders.elementAt(i).getValue();
+		}
+		//if total == 0 nothing to draw
+		if (total != 0) {
+			double startAngle = 0.0;
+			for (int i = 0; i < sliders.size(); i++) {
+				double ratio = ( sliders.elementAt(i).getValue() / total) * 360.0;
+				//draw the arc
+				g.setColor(LayoutConstants.courseColours[i]);
+				g.fillArc(LayoutConstants.xOffset, LayoutConstants.yOffset + 300, 2 * radius, 2 * radius, (int) startAngle, (int) ratio);
+				startAngle = startAngle + ratio;
+			}
+		}
 	}
 
 	/**
