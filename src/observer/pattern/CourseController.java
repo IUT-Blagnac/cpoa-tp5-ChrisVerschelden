@@ -37,7 +37,7 @@ public class CourseController extends JPanel implements Observer, ChangeListener
 		this.sliders = new Vector<JSlider>();
 		this.setLayout(new GridBagLayout());
 		this.setBackground(Color.white);
-
+		
 		coursePanel = new JPanel();
 		coursePanel.setBorder(new TitledBorder("Courses"));
 		coursePanel.setLayout(new GridLayout(0, 1));
@@ -145,16 +145,21 @@ public class CourseController extends JPanel implements Observer, ChangeListener
 
 		CourseController controller = new CourseController(data);
 		BarChartObserver bar = new BarChartObserver(data);
-
+		PieChartObserver pie = new PieChartObserver(data);
+		
 		JScrollPane scrollPane = new JScrollPane(bar,
+				JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		
+		JScrollPane scrollPanePie = new JScrollPane(pie,
 				JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
 		JFrame frame = new JFrame("Observer Pattern");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new GridBagLayout());
-		frame.setResizable(false);
-
+		frame.setResizable(true);
+		
 		GridBagConstraints constraints = new GridBagConstraints();
 		constraints.fill = GridBagConstraints.BOTH;
 		constraints.weightx = 0.25;
@@ -167,6 +172,11 @@ public class CourseController extends JPanel implements Observer, ChangeListener
 		constraints.gridx = 1;
 		constraints.gridy = 0;
 		frame.getContentPane().add(scrollPane, constraints);
+		constraints.weightx = 0.5;
+		constraints.weighty = 1.0;
+		constraints.gridx = 1;
+		constraints.gridy = 1;
+		frame.getContentPane().add(scrollPanePie, constraints);
 		frame.pack();
 		frame.setVisible(true);
 	}

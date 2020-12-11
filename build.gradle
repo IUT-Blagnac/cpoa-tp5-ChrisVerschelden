@@ -23,6 +23,7 @@ plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
     id "com.github.roroche.plantuml" version "1.0.2"
+    id 'com.adarshr.test-logger' version '2.1.1'
 }
 
 apply plugin:'java'
@@ -54,8 +55,8 @@ dependencies {
 
 jar {
     manifest {
-        //attributes 'Main-Class': 'observer/pattern/CourseController'
-        attributes 'Main-Class': 'observer/nonpattern/CourseViewer'
+        attributes 'Main-Class': 'observer/pattern/CourseController'
+        //attributes 'Main-Class': 'observer/nonpattern/CourseViewer'
     }
 }
  

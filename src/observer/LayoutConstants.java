@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Vector;
 
+import observer.pattern.CourseData;
+
 /**
  	Represents some constants for the drawing of graphs in this example.
 */
@@ -38,5 +40,16 @@ public class LayoutConstants {
 				+ (LayoutConstants.barSpacing + LayoutConstants.barWidth)
 				* noOfBars, LayoutConstants.graphHeight
 				+ LayoutConstants.yOffset);
+	}
+	
+	public static void paintPieChartOutline(Graphics g, Vector<CourseRecord> matiere) {
+		int x = 0;
+		int space = 100;
+		for(CourseRecord i : matiere) {
+			g.drawString(i.getName() , LayoutConstants.xOffset - 120, space );
+			g.setColor(courseColours[x]);
+			x++;
+			space += 20;
+		}
 	}
 }

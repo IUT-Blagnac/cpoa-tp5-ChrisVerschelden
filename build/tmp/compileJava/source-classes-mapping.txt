@@ -1,5 +1,7 @@
 observer/CourseRecord.java
  observer.CourseRecord
+observer/pattern/PieChartObserver.java
+ observer.pattern.PieChartObserver
 observer/nonpattern/CourseViewer.java
  observer.nonpattern.CourseViewer
 observer/pattern/BarChartObserver.java
